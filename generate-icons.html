@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generador de Iconos</title>
+</head>
+<body>
+    <h1>Generador de Iconos para la Extensión</h1>
+    <p>Abre este archivo en un navegador y haz clic derecho en cada imagen para guardarla como PNG.</p>
+
+    <h2>Icon 48x48</h2>
+    <canvas id="icon48" width="48" height="48"></canvas>
+
+    <h2>Icon 128x128</h2>
+    <canvas id="icon128" width="128" height="128"></canvas>
+
+    <script>
+        function drawIcon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+
+            // Gradiente de fondo
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#f5af19');
+            gradient.addColorStop(1, '#f12711');
+
+            // Círculo de fondo
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size/2 - 2, 0, Math.PI * 2);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+
+            // Estrella
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            const cx = size / 2;
+            const cy = size / 2;
+            const outerRadius = size * 0.35;
+            const innerRadius = size * 0.15;
+            const spikes = 5;
+
+            let rot = Math.PI / 2 * 3;
+            let x = cx;
+            let y = cy;
+            const step = Math.PI / spikes;
+
+            ctx.moveTo(cx, cy - outerRadius);
+            for (let i = 0; i < spikes; i++) {
+                x = cx + Math.cos(rot) * outerRadius;
+                y = cy + Math.sin(rot) * outerRadius;
+                ctx.lineTo(x, y);
+                rot += step;
+
+                x = cx + Math.cos(rot) * innerRadius;
+                y = cy + Math.sin(rot) * innerRadius;
+                ctx.lineTo(x, y);
+                rot += step;
+            }
+            ctx.lineTo(cx, cy - outerRadius);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        drawIcon('icon48', 48);
+        drawIcon('icon128', 128);
+
+        // Convertir a PNG y mostrar enlace de descarga
+        ['icon48', 'icon128'].forEach(id => {
+            const canvas = document.getElementById(id);
+            const link = document.createElement('a');
+            link.download = id + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.textContent = 'Descargar ' + id + '.png';
+            link.style.display = 'block';
+            link.style.marginTop = '10px';
+            canvas.parentNode.insertBefore(link, canvas.nextSibling);
+        });
+    </script>
+</body>
+</html>

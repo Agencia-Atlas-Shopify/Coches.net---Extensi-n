@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Coches.net - Super Precio Filter",
+  "description": "Añade un botón para filtrar solo anuncios con Super Precio en coches.net",
+  "version": "1.0.0",
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": ["https://www.coches.net/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
