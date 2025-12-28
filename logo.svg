@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5af19"/>
+      <stop offset="100%" style="stop-color:#f12711"/>
+    </linearGradient>
+    <linearGradient id="carGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#e0e0e0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo circular con gradiente -->
+  <circle cx="64" cy="64" r="60" fill="url(#bgGrad)"/>
+
+  <!-- Coche simplificado -->
+  <g transform="translate(20, 45)">
+    <!-- Carrocería -->
+    <path d="M15 28 L20 12 L35 8 L55 8 L70 12 L75 28 L78 28 L78 38 L72 38 L72 35 L18 35 L18 38 L12 38 L12 28 Z"
+          fill="url(#carGrad)" stroke="#ffffff" stroke-width="1"/>
+    <!-- Ventanas -->
+    <path d="M23 13 L35 10 L55 10 L67 13 L70 24 L20 24 Z"
+          fill="#1a1a2e" opacity="0.8"/>
+    <!-- Línea divisoria ventana -->
+    <line x1="45" y1="10" x2="45" y2="24" stroke="#ffffff" stroke-width="1.5"/>
+    <!-- Rueda izquierda -->
+    <circle cx="28" cy="35" r="8" fill="#1a1a2e"/>
+    <circle cx="28" cy="35" r="4" fill="#666"/>
+    <!-- Rueda derecha -->
+    <circle cx="62" cy="35" r="8" fill="#1a1a2e"/>
+    <circle cx="62" cy="35" r="4" fill="#666"/>
+    <!-- Faros -->
+    <ellipse cx="14" cy="26" rx="3" ry="4" fill="#ffeb3b"/>
+    <ellipse cx="76" cy="26" rx="3" ry="4" fill="#ffeb3b"/>
+  </g>
+
+  <!-- Estrella Super Precio -->
+  <g transform="translate(85, 18)">
+    <circle cx="12" cy="12" r="16" fill="#ffffff"/>
+    <path d="M12 2 L14.5 9 L22 9 L16 13.5 L18.5 21 L12 16.5 L5.5 21 L8 13.5 L2 9 L9.5 9 Z"
+          fill="#f5af19" stroke="#f12711" stroke-width="0.5"/>
+  </g>
+</svg>

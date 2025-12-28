@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Coches.net - Super Precio Filter",
-  "description": "Añade un botón para filtrar solo anuncios con Super Precio en coches.net",
+  "name": "Filtro Super Precio para Coches.net",
+  "description": "Encuentra las mejores ofertas de coches de segunda mano. Filtra anuncios con Super Precio en coches.net y ahorra tiempo buscando chollos.",
   "version": "1.0.0",
   "permissions": [],
   "content_scripts": [
